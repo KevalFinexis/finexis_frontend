@@ -1,0 +1,333 @@
+/* ═══════════════════════════════════
+   Contact Page
+   ═══════════════════════════════════ */
+
+.contact-hero {
+   background: var(--grad-hero);
+   padding: calc(var(--nav-height) + var(--sp-16)) 0 var(--sp-16);
+   text-align: center;
+}
+
+.contact-hero .section-title {
+   color: var(--clr-white);
+}
+
+.contact-hero .section-subtitle {
+   color: rgba(255, 255, 255, 0.6);
+   margin: 0 auto;
+}
+
+.contact-grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: var(--sp-12);
+}
+
+/* ── Form ── */
+.contact-form-wrapper {
+   background: var(--clr-white);
+   border-radius: var(--radius-lg);
+   padding: var(--sp-10);
+   box-shadow: var(--shadow-md);
+   border: 1px solid var(--clr-gray-100);
+   margin-top: calc(-1 * var(--sp-10));
+   position: relative;
+   z-index: 2;
+}
+
+.contact-form-wrapper h3 {
+   font-size: var(--fs-2xl);
+   font-weight: 800;
+   color: var(--clr-primary);
+   margin-bottom: var(--sp-6);
+}
+
+.form-group {
+   margin-bottom: var(--sp-5);
+}
+
+.form-group label {
+   display: block;
+   font-size: var(--fs-sm);
+   font-weight: 600;
+   color: var(--clr-gray-800);
+   margin-bottom: var(--sp-2);
+}
+
+.form-control {
+   width: 100%;
+   padding: 0.85rem var(--sp-4);
+   border: 1px solid var(--clr-gray-200);
+   border-radius: var(--radius-sm);
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-800);
+   background: var(--clr-offwhite);
+   transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+   border-color: var(--clr-accent);
+   background: var(--clr-white);
+   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-control::placeholder {
+   color: var(--clr-gray-200);
+}
+
+textarea.form-control {
+   resize: vertical;
+   min-height: 120px;
+}
+
+.form-row {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: var(--sp-5);
+}
+
+.form-submit {
+   width: 100%;
+   padding: 0.9rem;
+   margin-top: var(--sp-2);
+}
+
+.form-success {
+   text-align: center;
+   padding: var(--sp-6);
+   color: var(--clr-success);
+   font-weight: 600;
+   font-size: var(--fs-lg);
+}
+
+/* ── Info sidebar ── */
+.contact-info {
+   padding-top: var(--sp-6);
+}
+
+.contact-info h3 {
+   font-size: var(--fs-2xl);
+   font-weight: 800;
+   color: var(--clr-primary);
+   margin-bottom: var(--sp-2);
+}
+
+.contact-info>p {
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-500);
+   margin-bottom: var(--sp-8);
+   line-height: 1.7;
+}
+
+.contact-info-item {
+   display: flex;
+   gap: var(--sp-4);
+   margin-bottom: var(--sp-6);
+}
+
+.contact-info-icon {
+   width: 48px;
+   height: 48px;
+   border-radius: var(--radius-md);
+   background: rgba(37, 99, 235, 0.1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: var(--clr-accent);
+   font-size: var(--fs-xl);
+   flex-shrink: 0;
+}
+
+.contact-info-item h4 {
+   font-size: var(--fs-sm);
+   font-weight: 700;
+   color: var(--clr-primary);
+   margin-bottom: var(--sp-1);
+}
+
+.contact-info-item p {
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-500);
+   line-height: 1.6;
+}
+
+/* Map placeholder */
+.contact-map {
+   margin-top: var(--sp-8);
+   border-radius: var(--radius-md);
+   overflow: hidden;
+   background: var(--clr-offwhite);
+   height: 200px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid var(--clr-gray-100);
+}
+
+.contact-map span {
+   color: var(--clr-gray-500);
+   font-size: var(--fs-sm);
+}
+
+.contact-form-lead {
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-500);
+   line-height: 1.6;
+   margin-bottom: var(--sp-6);
+}
+
+.form-select {
+   cursor: pointer;
+   appearance: auto;
+}
+
+.contact-quick-actions {
+   padding-top: 0;
+   padding-bottom: var(--sp-8);
+}
+
+.contact-action-cards {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   gap: var(--sp-5);
+   margin-bottom: var(--sp-8);
+}
+
+.contact-action-card {
+   display: flex;
+   align-items: flex-start;
+   gap: var(--sp-4);
+   padding: var(--sp-6);
+   border-radius: var(--radius-lg);
+   border: 1px solid var(--clr-gray-100);
+   background: var(--clr-white);
+   box-shadow: var(--shadow-sm);
+   transition: border-color var(--transition-base), box-shadow var(--transition-base);
+   text-decoration: none;
+   color: inherit;
+}
+
+a.contact-action-card:hover {
+   border-color: rgba(37, 99, 235, 0.3);
+   box-shadow: var(--shadow-md);
+}
+
+.contact-action-card svg {
+   font-size: 1.75rem;
+   flex-shrink: 0;
+   margin-top: 2px;
+}
+
+.contact-action-whatsapp svg {
+   color: #25d366;
+}
+
+.contact-action-calendly svg {
+   color: var(--clr-accent);
+}
+
+.contact-action-card h3 {
+   font-size: var(--fs-base);
+   font-weight: 700;
+   color: var(--clr-primary);
+   margin-bottom: var(--sp-1);
+}
+
+.contact-action-card p {
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-500);
+   line-height: 1.55;
+   margin: 0;
+}
+
+.contact-action-placeholder {
+   background: var(--clr-offwhite);
+}
+
+.contact-code {
+   font-size: 0.8em;
+   padding: 0.1em 0.35em;
+   border-radius: 4px;
+   background: var(--clr-gray-100);
+   color: var(--clr-primary);
+}
+
+.contact-trust-row {
+   display: flex;
+   flex-wrap: wrap;
+   gap: var(--sp-4) var(--sp-10);
+   justify-content: center;
+   list-style: none;
+   margin: 0;
+   padding: var(--sp-6) 0 0;
+   border-top: 1px solid var(--clr-gray-100);
+   font-size: var(--fs-sm);
+   font-weight: 600;
+   color: var(--clr-gray-500);
+}
+
+.contact-trust-row svg {
+   color: var(--clr-accent);
+   margin-right: var(--sp-2);
+   vertical-align: -0.15em;
+}
+
+.contact-calendly-section {
+   background: var(--clr-offwhite);
+   padding-top: var(--sp-12);
+   padding-bottom: var(--sp-12);
+}
+
+.contact-calendly-heading {
+   font-family: var(--ff-display);
+   font-size: var(--fs-2xl);
+   font-weight: 700;
+   color: var(--clr-primary);
+   margin-bottom: var(--sp-2);
+   text-align: center;
+}
+
+.contact-calendly-intro {
+   text-align: center;
+   font-size: var(--fs-sm);
+   color: var(--clr-gray-500);
+   margin-bottom: var(--sp-6);
+}
+
+.contact-calendly-intro a {
+   color: var(--clr-accent);
+   font-weight: 600;
+}
+
+.contact-calendly-frame-wrap {
+   border-radius: var(--radius-lg);
+   overflow: hidden;
+   border: 1px solid var(--clr-gray-100);
+   background: var(--clr-white);
+   min-height: 640px;
+   box-shadow: var(--shadow-md);
+}
+
+.contact-calendly-iframe {
+   width: 100%;
+   height: 700px;
+   border: none;
+}
+
+@media (max-width: 768px) {
+   .contact-grid {
+      grid-template-columns: 1fr;
+   }
+
+   .form-row {
+      grid-template-columns: 1fr;
+   }
+
+   .contact-form-wrapper {
+      margin-top: calc(-1 * var(--sp-6));
+   }
+
+   .contact-calendly-iframe {
+      height: 900px;
+   }
+}

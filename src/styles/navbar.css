@@ -1,0 +1,235 @@
+/* ═══════════════════════════════════
+   Navbar
+   ═══════════════════════════════════ */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: var(--nav-height);
+  padding-block: var(--nav-padding-y);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+  background: var(--clr-white);
+  border-bottom: 1px solid var(--clr-gray-100);
+  transition:
+    background var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.navbar.scrolled {
+  background: var(--clr-white);
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.navbar .nav-bar-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  column-gap: var(--sp-4);
+}
+
+.nav-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+/* ── Logo ── */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 0;
+  justify-self: start;
+}
+
+.nav-logo-icon {
+  width: var(--nav-logo-size);
+  height: var(--nav-logo-size);
+  flex-shrink: 0;
+  display: block;
+  object-fit: contain;
+}
+
+.nav-logo-wordmark {
+  height: var(--nav-logo-size);
+  width: auto;
+  max-width: min(280px, 42vw);
+  flex-shrink: 1;
+  display: block;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* ── Links ── */
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-8);
+  justify-self: center;
+}
+
+.nav-links a:not(.btn) {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-accent);
+  transition: color var(--transition-fast);
+  position: relative;
+}
+
+.nav-links a:not(.btn)::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--clr-accent);
+  transition: width var(--transition-base);
+}
+
+.nav-links a:not(.btn):hover,
+.nav-links a:not(.btn).active {
+  color: var(--clr-accent-d);
+}
+
+.nav-links a:not(.btn):hover::after,
+.nav-links a:not(.btn).active::after {
+  width: 100%;
+}
+
+/* Must beat .btn { display: inline-flex } from index.css */
+.navbar .nav-links .nav-cta--menu {
+  display: none;
+}
+
+/* ── Mobile toggle ── */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  padding: var(--sp-2);
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--clr-primary);
+  border-radius: 2px;
+  transition: all var(--transition-fast);
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ── Mobile menu ── */
+@media (max-width: 768px) {
+  .navbar .container {
+    padding-left: var(--sp-4);
+    padding-right: var(--sp-4);
+  }
+
+  .navbar .nav-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-3);
+    column-gap: var(--sp-3);
+  }
+
+  .nav-logo {
+    justify-self: unset;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: var(--sp-2);
+  }
+
+  /* Icon + wordmark + hamburger: cap wordmark width so row does not overlap */
+  .nav-logo-wordmark {
+    height: auto;
+    max-height: var(--nav-logo-size);
+    width: auto;
+    max-width: min(220px, calc(100vw - 9.5rem));
+    flex-shrink: 1;
+    min-width: 0;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .nav-actions .nav-cta--bar {
+    display: none;
+  }
+
+  .navbar .nav-links .nav-cta--menu {
+    display: inline-flex;
+    justify-content: center;
+    margin-top: var(--sp-2);
+    padding: 0.75rem 1.5rem;
+    font-size: var(--fs-sm);
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .nav-links {
+    justify-self: unset;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: var(--clr-white);
+    padding: var(--sp-6) var(--sp-5);
+    gap: var(--sp-5);
+    transform: translateY(-120%);
+    transition: transform var(--transition-base);
+    border-bottom: 1px solid var(--clr-gray-100);
+    box-shadow: var(--shadow-md);
+    z-index: 999;
+    box-sizing: border-box;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+
+  .nav-actions {
+    justify-self: unset;
+    flex-shrink: 0;
+    gap: 0;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links a:not(.btn) {
+    font-size: var(--fs-lg);
+    padding: var(--sp-2) 0;
+  }
+}
